@@ -16,7 +16,7 @@ MonoBehaviour:
   distanceGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 0}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -43,9 +43,9 @@ MonoBehaviour:
     m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  near: 10
+  near: 30
   far: 100
-  distanceFogIntensity: 0.95
+  distanceFogIntensity: 1
   useHeight: 0
   heightGradient:
     serializedVersion: 2
@@ -131,13 +131,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DistanceFogIntensity: 0.95
+    - _DistanceFogIntensity: 1
     - _DistanceHeightBlend: 0.5
     - _Far: 100
     - _HeightFogIntensity: 0.5
     - _HighWorldY: 35
     - _LowWorldY: 5
-    - _Near: 10
+    - _Near: 30
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
