@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,10 +8,12 @@ public class Player : MonoBehaviour
     [Range(0.01f, 1f)]
     public float scaleSpeed;
     Ship ship;
+    Reticle reticle;
 
     void Start()
     {
         ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
+        reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -27,10 +30,10 @@ public class Player : MonoBehaviour
         var mouseY = Input.GetAxis("Mouse Y");
         transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
 
-        var scaleDiff = Input.GetAxis("Scale") * scaleSpeed;
+        // var scaleDiff = Input.GetAxis("Scale") * scaleSpeed;
         // Debug.Log($"{scaleDiff} {Mathf.Pow(scaleDiff, Time.fixedDeltaTime)}");
         // Camera.main.fieldOfView += scaleDiff * Time.fixedDeltaTime;
-        ship.transform.localScale *= Mathf.Pow(1 + scaleDiff, Time.fixedDeltaTime);
+        // ship.transform.localScale *= Mathf.Pow(1 + scaleDiff, Time.fixedDeltaTime);
 
 
         // var allObjects = FindObjectsByType<Transform>(FindObjectsSortMode.None);
@@ -38,5 +41,22 @@ public class Player : MonoBehaviour
         // {
         //     obj.localScale *= Mathf.Pow(1 - scaleDiff, Time.fixedDeltaTime);
         // }
+    }
+
+    void Update()
+    {
+        if (reticle.raycastHit != null)
+        {
+            var target = reticle.raycastHit.Value.collider.gameObject;
+
+            if (Input.GetButtonDown("ScaleUp"))
+            {
+                target.transform.DOScale(target.transform.localScale * 2f, 1);
+            }
+            else if (Input.GetButtonDown("ScaleDown"))
+            {
+                target.transform.DOScale(target.transform.localScale * 0.5f, 1);
+            }
+        }
     }
 }
