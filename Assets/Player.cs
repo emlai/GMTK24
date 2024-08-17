@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float scaleSpeed;
     Ship ship;
     Reticle reticle;
+    bool scaling;
 
     void Start()
     {
@@ -41,21 +42,36 @@ public class Player : MonoBehaviour
         // {
         //     obj.localScale *= Mathf.Pow(1 - scaleDiff, Time.fixedDeltaTime);
         // }
+        // Debug.DrawRay(ship.transform.position, ship.transform.forward * 10000, Color.red, 1, false);
     }
 
     void Update()
     {
-        if (reticle.raycastHit != null)
-        {
-            var target = reticle.raycastHit.Value.collider.gameObject;
+        // if (reticle.raycastHit != null)
+        // {
+        //     var target = reticle.raycastHit.Value.collider.gameObject;
+        //
+        //     if (Input.GetButtonDown("ScaleUp"))
+        //     {
+        //         target.transform.DOScale(target.transform.localScale * 2f, 1);
+        //     }
+        //     else if (Input.GetButtonDown("ScaleDown"))
+        //     {
+        //         target.transform.DOScale(target.transform.localScale * 0.5f, 1);
+        //     }
+        // }
 
+        if (!scaling)
+        {
             if (Input.GetButtonDown("ScaleUp"))
             {
-                target.transform.DOScale(target.transform.localScale * 2f, 1);
+                scaling = true;
+                ship.transform.DOScale(ship.transform.localScale * 2f, 0.5f).OnComplete(() => scaling = false);
             }
             else if (Input.GetButtonDown("ScaleDown"))
             {
-                target.transform.DOScale(target.transform.localScale * 0.5f, 1);
+                scaling = true;
+                ship.transform.DOScale(ship.transform.localScale * 0.5f, 0.5f).OnComplete(() => scaling = false);
             }
         }
     }
