@@ -61,6 +61,10 @@ MonoBehaviour:
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
   _explosionForce: 1000
   _explosionRadius: 10
+  _broken: 0
+  _breakForce: 0
+  _collisionMultiplier: 1
+  _playerPushForce: 1000
 --- !u!95 &129243826595215119
 Animator:
   serializedVersion: 7
@@ -98,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
