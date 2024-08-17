@@ -17,8 +17,12 @@ public class Ship : MonoBehaviour
             transform.position = Vector3.zero;
         }
 
-        var diff = Vector3.forward * forwardMoveSpeed * Time.fixedDeltaTime;
-        transform.position += diff;
+        var z = Input.GetAxis("Vertical");
+        if (z == 0) // Don't auto-move ship forward when player is manually moving backwards.
+        {
+            var diff = Vector3.forward * forwardMoveSpeed * Time.fixedDeltaTime;
+            transform.position += diff;
+        }
         // player.transform.position += diff;
     }
 }
