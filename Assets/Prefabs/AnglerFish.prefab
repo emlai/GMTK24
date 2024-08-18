@@ -48,7 +48,7 @@ MonoBehaviour:
   targetToChase: {fileID: 0}
   triggerDistance: 100
   chaseSpeed: 10
-  turnSpeed: 10
+  turnSpeed: 1
 --- !u!1001 &5892581040262486459
 PrefabInstance:
   m_ObjectHideFlags: 0
