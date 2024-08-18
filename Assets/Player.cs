@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     public float scaleSpeed;
     Ship ship;
     // Reticle reticle;
+    private Animator animator;
     bool scaling;
 
     void Start()
     {
         ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
+        animator = ship.GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -26,6 +28,14 @@ public class Player : MonoBehaviour
         var z = Input.GetAxis("Vertical");
         // transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
         ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * Time.fixedDeltaTime);
+        if (z > 0)
+        {
+            animator.speed = 8;
+        }
+        else
+        {
+            animator.speed = 2;
+        }
 
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
