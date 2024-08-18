@@ -3,7 +3,7 @@ using UnityEngine;
 public class ReplaceAndExplode : MonoBehaviour
 {
 	[SerializeField] private GameObject _replacement;
-	[SerializeField] private float _explosionForce = 500f;
+	// [SerializeField] private float _explosionForce = 500f;
 	[SerializeField] private float _explosionRadius = 5f;
 	[SerializeField] private bool _broken;
 	[SerializeField] private float _breakForce = 1;

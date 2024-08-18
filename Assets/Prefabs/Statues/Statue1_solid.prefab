@@ -64,7 +64,6 @@ MonoBehaviour:
   _broken: 0
   _breakForce: 0
   _collisionMultiplier: 1
-  _playerPushForce: 1000
 --- !u!95 &129243826595215119
 Animator:
   serializedVersion: 7
