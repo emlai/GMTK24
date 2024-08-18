@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -34,5 +35,28 @@ public class Ship : MonoBehaviour
         if (growing) return;
         growing = true;
         transform.DOScale(transform.localScale * 2, 0.2f).SetEase(Ease.InOutBack).OnComplete(() => growing = false);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Shrimp"))
+        {
+            StartCoroutine(Eat(other.gameObject));
+        }
+    }
+
+    IEnumerator Eat(GameObject other)
+    {
+        var mouth = transform.Find("MouthPosition");
+
+        while (Vector3.Distance(other.gameObject.transform.position, mouth.position) > 0.1f)
+        {
+            var dir = (mouth.position - other.gameObject.transform.position).normalized;
+            other.gameObject.transform.position += dir * 30 * Time.deltaTime;
+            yield return null;
+        }
+
+        mouth.GetComponent<AudioSource>().Play();
+        Destroy(other);
     }
 }

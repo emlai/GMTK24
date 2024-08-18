@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // transform.localScale = Vector3.Lerp(transform.localScale, target.localScale, followSpeed * Time.fixedDeltaTime);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.fixedDeltaTime);
+        // transform.localScale = Vector3.Lerp(transform.localScale, target.localScale, followSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.deltaTime);
     }
 }
