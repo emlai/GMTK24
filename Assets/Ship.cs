@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
@@ -8,10 +9,12 @@ public class Ship : MonoBehaviour
     Player player;
     bool growing;
     public float growthFactor = 1;
+    public TextMeshProUGUI progressbar;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        UpdateProgressbar();
     }
 
     void FixedUpdate()
@@ -35,8 +38,24 @@ public class Ship : MonoBehaviour
     {
         if (growing) return;
         growing = true;
-        transform.DOScale(transform.localScale + Vector3.one * growthFactor, 0.2f).SetEase(Ease.InOutBack).OnComplete(() => growing = false);
+        transform.DOScale(transform.localScale + Vector3.one * growthFactor, 0.2f).SetEase(Ease.InOutBack).OnComplete(() =>
+            {
+                growing = false;
+                UpdateProgressbar();
+            }
+        );
     }
+
+    void UpdateProgressbar()
+    {
+        var weight = Mathf.Pow(2, transform.localScale.x) * 0.0005;
+        var progressValue = (int)transform.localScale.x - 1;
+        var maxProgress = 30;
+        var hyphens = new string('-', Mathf.Min(maxProgress, progressValue));
+        var spaces = new string(' ', Mathf.Max(0, maxProgress - progressValue));
+        progressbar.text = $"Progress: [{hyphens}{spaces}]\nYour weight: {weight} KG";
+    }
+
 
     public void OnTriggerEnter(Collider other)
     {

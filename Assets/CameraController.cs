@@ -19,11 +19,6 @@ public class CameraController : MonoBehaviour
     {
         // var sizeMult = targetInitialScale / target.localScale.x; // increase follow speed when ship is smaller and vice versa
         transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.fixedDeltaTime);
-    }
-
-    void Update()
-    {
-        // transform.localScale = Vector3.Lerp(transform.localScale, target.localScale, followSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.fixedDeltaTime);
     }
 }
