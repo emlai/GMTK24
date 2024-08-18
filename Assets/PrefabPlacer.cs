@@ -11,6 +11,7 @@ public class PrefabPlacer : MonoBehaviour
     public float maxScale;
     public bool respawn;
 
+#if UNITY_EDITOR
     void OnValidate()
     {
         if (respawn)
@@ -37,4 +38,5 @@ public class PrefabPlacer : MonoBehaviour
             };
         }
     }
+#endif
 }

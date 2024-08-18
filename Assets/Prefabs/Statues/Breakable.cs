@@ -30,21 +30,24 @@ public class ReplaceAndExplode : MonoBehaviour
 	{
 		if (_broken) return;
 		var player = collider.GetComponent<CharacterController>();
-		var speed = player.velocity.magnitude;
-		if (speed >= _breakForce)
+		if (player != null) // Only allow the player to break statues
 		{
-			_broken = true;
-
-			// player.Move(-player.velocity * _playerPushForce);
-			var replacement = Instantiate(_replacement, transform.position, transform.rotation);
-
-			foreach (var rb in replacement.GetComponentsInChildren<Rigidbody>())
+			var speed = player.velocity.magnitude;
+			if (speed >= _breakForce)
 			{
-				rb.AddExplosionForce(speed * _collisionMultiplier, transform.position, _explosionRadius);
-				// rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
-			}
+				_broken = true;
 
-			Destroy(gameObject);
+				// player.Move(-player.velocity * _playerPushForce);
+				var replacement = Instantiate(_replacement, transform.position, transform.rotation);
+
+				foreach (var rb in replacement.GetComponentsInChildren<Rigidbody>())
+				{
+					rb.AddExplosionForce(speed * _collisionMultiplier, transform.position, _explosionRadius);
+					// rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+				}
+
+				Destroy(gameObject);
+			}
 		}
 	}
 }
