@@ -28,7 +28,9 @@ public class PrefabPlacer : MonoBehaviour
 
                 for (var i = 0; i < spawnCount; i++)
                 {
-                    var spawned = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position + Random.insideUnitSphere * maxSpawnDistance, Random.rotation);
+                    var spawned = (GameObject)PrefabUtility.InstantiatePrefab(prefabs[Random.Range(0, prefabs.Length)]);
+                    spawned.transform.position = transform.position + Random.insideUnitSphere * maxSpawnDistance;
+                    spawned.transform.rotation = Random.rotation;
                     spawned.transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
                     spawned.transform.parent = transform;
                 }

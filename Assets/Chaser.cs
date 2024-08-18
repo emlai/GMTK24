@@ -27,6 +27,12 @@ public class Chaser : MonoBehaviour
         else if (Vector3.Distance(transform.position, targetToChase.transform.position) < triggerDistance)
         {
             chasing = true;
+
+            var audioSource = GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
     }
 }
