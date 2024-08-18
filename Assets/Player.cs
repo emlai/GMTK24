@@ -8,13 +8,13 @@ public class Player : MonoBehaviour
     [Range(0.01f, 1f)]
     public float scaleSpeed;
     Ship ship;
-    Reticle reticle;
+    // Reticle reticle;
     bool scaling;
 
     void Start()
     {
         ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
-        reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
+        // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -25,11 +25,12 @@ public class Player : MonoBehaviour
         var y = Input.GetAxis("UpDownThrust");
         var z = Input.GetAxis("Vertical");
         // transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        ship.transform.position += ship.transform.rotation * (new Vector3(-x, y, -z) * movementSpeed * Time.fixedDeltaTime);
+        ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * Time.fixedDeltaTime);
 
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
-        transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
+        // transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
+        ship.transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
 
         // var scaleDiff = Input.GetAxis("Scale") * scaleSpeed;
         // Debug.Log($"{scaleDiff} {Mathf.Pow(scaleDiff, Time.fixedDeltaTime)}");
