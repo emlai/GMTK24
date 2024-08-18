@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class AsteroidField : MonoBehaviour
+public class PrefabPlacer : MonoBehaviour
 {
     public GameObject[] prefabs;
     public int spawnCount;
