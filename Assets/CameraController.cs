@@ -17,8 +17,8 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        var sizeMult = targetInitialScale / target.localScale.x; // increase follow speed when ship is smaller and vice versa
-        transform.position = Vector3.Lerp(transform.position, targetPos, sizeMult * followSpeed * Time.fixedDeltaTime);
+        // var sizeMult = targetInitialScale / target.localScale.x; // increase follow speed when ship is smaller and vice versa
+        transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.fixedDeltaTime);
     }
 
     void Update()

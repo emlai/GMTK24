@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -27,7 +26,7 @@ public class Player : MonoBehaviour
         var y = Input.GetAxis("UpDownThrust");
         var z = Input.GetAxis("Vertical");
         // transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * Time.fixedDeltaTime);
+        ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
         if (z > 0)
         {
             animator.speed = 8;
@@ -56,34 +55,34 @@ public class Player : MonoBehaviour
         // Debug.DrawRay(ship.transform.position, ship.transform.forward * 10000, Color.red, 1, false);
     }
 
-    void Update()
-    {
-        // if (reticle.raycastHit != null)
-        // {
-        //     var target = reticle.raycastHit.Value.collider.gameObject;
-        //
-        //     if (Input.GetButtonDown("ScaleUp"))
-        //     {
-        //         target.transform.DOScale(target.transform.localScale * 2f, 1);
-        //     }
-        //     else if (Input.GetButtonDown("ScaleDown"))
-        //     {
-        //         target.transform.DOScale(target.transform.localScale * 0.5f, 1);
-        //     }
-        // }
-
-        if (!scaling)
-        {
-            if (Input.GetButtonDown("ScaleUp"))
-            {
-                scaling = true;
-                ship.transform.DOScale(ship.transform.localScale * 2f, 0.5f).OnComplete(() => scaling = false);
-            }
-            else if (Input.GetButtonDown("ScaleDown"))
-            {
-                scaling = true;
-                ship.transform.DOScale(ship.transform.localScale * 0.5f, 0.5f).OnComplete(() => scaling = false);
-            }
-        }
-    }
+    // void Update()
+    // {
+    //     // if (reticle.raycastHit != null)
+    //     // {
+    //     //     var target = reticle.raycastHit.Value.collider.gameObject;
+    //     //
+    //     //     if (Input.GetButtonDown("ScaleUp"))
+    //     //     {
+    //     //         target.transform.DOScale(target.transform.localScale * 2f, 1);
+    //     //     }
+    //     //     else if (Input.GetButtonDown("ScaleDown"))
+    //     //     {
+    //     //         target.transform.DOScale(target.transform.localScale * 0.5f, 1);
+    //     //     }
+    //     // }
+    //
+    //     if (!scaling)
+    //     {
+    //         if (Input.GetButtonDown("ScaleUp"))
+    //         {
+    //             scaling = true;
+    //             ship.transform.DOScale(ship.transform.localScale * 2f, 0.5f).OnComplete(() => scaling = false);
+    //         }
+    //         else if (Input.GetButtonDown("ScaleDown"))
+    //         {
+    //             scaling = true;
+    //             ship.transform.DOScale(ship.transform.localScale * 0.5f, 0.5f).OnComplete(() => scaling = false);
+    //         }
+    //     }
+    // }
 }
