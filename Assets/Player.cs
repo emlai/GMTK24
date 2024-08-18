@@ -29,11 +29,11 @@ public class Player : MonoBehaviour
         ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
         if (z > 0)
         {
-            animator.speed = 8;
+            animator.speed = 3;
         }
         else
         {
-            animator.speed = 2;
+            animator.speed = 1;
         }
 
         var mouseX = Input.GetAxis("Mouse X");
