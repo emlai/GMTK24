@@ -89,7 +89,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -997,6 +997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a9f4ba14f254f93be06aa49ce482ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  moveTowardsPlayer: 0
 --- !u!4 &6910006757842211161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7118313743061233464, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}

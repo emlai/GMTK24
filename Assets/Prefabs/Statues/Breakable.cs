@@ -39,6 +39,12 @@ public class ReplaceAndExplode : MonoBehaviour
 
 				// player.Move(-player.velocity * _playerPushForce);
 				var replacement = Instantiate(_replacement, transform.position, transform.rotation);
+				replacement.transform.localScale = transform.localScale;
+
+				foreach (var ls in replacement.GetComponentsInChildren<LightSphere>())
+				{
+					ls.moveTowardsPlayer = true;
+				}
 
 				foreach (var rb in replacement.GetComponentsInChildren<Rigidbody>())
 				{

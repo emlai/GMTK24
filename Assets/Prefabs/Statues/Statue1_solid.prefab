@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -115,6 +114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 890077885822826339}
     m_Modifications:
+    - target: {fileID: 2221221737563813289, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6231272853256400049, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
       propertyPath: m_Enabled
       value: 0

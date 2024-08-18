@@ -7,6 +7,7 @@ public class LightSphere : MonoBehaviour
     public float speed;
     float startTime;
     bool eaten;
+    public bool moveTowardsPlayer;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class LightSphere : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!eaten)
+        if (moveTowardsPlayer && !eaten)
         {
             var timeSinceStart = Time.time - startTime;
             transform.position += (player.transform.position - transform.position).normalized * timeSinceStart * speed * Time.fixedDeltaTime;
