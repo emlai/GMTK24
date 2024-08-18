@@ -8,7 +8,7 @@ public class ReplaceAndExplode : MonoBehaviour
 	[SerializeField] private bool _broken;
 	[SerializeField] private float _breakForce = 1;
 	[SerializeField] private float _collisionMultiplier = 1;
-	[SerializeField] private float _playerPushForce = 1;
+	// [SerializeField] private float _playerPushForce = 1;
 
 	// public void TriggerExplosion()
 	// {
