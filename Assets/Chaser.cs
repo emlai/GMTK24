@@ -8,6 +8,14 @@ public class Chaser : MonoBehaviour
     public float turnSpeed = 10;
     private bool chasing;
 
+    private void Start()
+    {
+        if (targetToChase == null)
+        {
+            targetToChase = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
+
     private void FixedUpdate()
     {
         // Always rotate towards target
