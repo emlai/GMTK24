@@ -9969,7 +9969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8532474362280988507, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
       propertyPath: m_Name
-      value: LightSphere Variant
+      value: LightSphere_particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
