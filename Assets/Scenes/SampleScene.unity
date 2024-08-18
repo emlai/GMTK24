@@ -1297,7 +1297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -3651,7 +3650,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -3867,7 +3865,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -9719,7 +9716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -14189,7 +14185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -20301,7 +20296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -22554,7 +22548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -23481,7 +23474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -25274,7 +25266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -25467,7 +25458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -26723,7 +26713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -27002,7 +26991,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -29366,7 +29354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -32455,7 +32442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -43060,7 +43046,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 300}
-  m_LocalScale: {x: 0.02525238, y: 0.02525238, z: 0.02525238}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2123061921}
@@ -43556,7 +43542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -50833,7 +50818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -57299,6 +57283,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -62976,7 +62972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -76291,7 +76286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -81237,7 +81231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -90409,7 +90402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -92805,7 +92797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -95445,15 +95436,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6757731847195177204, guid: 1c64e7ea1d634be44bab7d40222aa819, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.02525238
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757731847195177204, guid: 1c64e7ea1d634be44bab7d40222aa819, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.02525238
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757731847195177204, guid: 1c64e7ea1d634be44bab7d40222aa819, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.02525238
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757731847195177204, guid: 1c64e7ea1d634be44bab7d40222aa819, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101357,7 +101348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -109578,7 +109568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -110575,7 +110564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -111977,7 +111965,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -113248,7 +113235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -120941,7 +120927,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -122728,7 +122713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: a4a6e2e71ee3a244db5c38ef4f309b70, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -124614,7 +124598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
@@ -126761,7 +126744,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02525238, y: 0.02525238, z: 0.02525238}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2123061921}
@@ -137261,7 +137244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: 004b53fb8b90ce64b8139983135214a5, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0

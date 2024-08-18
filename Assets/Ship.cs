@@ -1,9 +1,11 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
     public float forwardMoveSpeed;
     Player player;
+    bool growing;
 
     void Start()
     {
@@ -25,5 +27,12 @@ public class Ship : MonoBehaviour
             transform.position += diff;
         }
         // player.transform.position += diff;
+    }
+
+    public void Grow()
+    {
+        if (growing) return;
+        growing = true;
+        transform.DOScale(transform.localScale * 2, 0.2f).SetEase(Ease.InOutBack).OnComplete(() => growing = false);
     }
 }

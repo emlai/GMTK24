@@ -10,7 +10,7 @@ public class LightSphere : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Ship");
         startTime = Time.time;
     }
 
@@ -34,6 +34,7 @@ public class LightSphere : MonoBehaviour
         eaten = true;
         GetComponent<MeshRenderer>().enabled = false; // hide sphere
         GetComponent<AudioSource>().Play();
+        player.GetComponent<Ship>().Grow();
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
