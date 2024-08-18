@@ -7390,7 +7390,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -25185,6 +25185,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2123061927}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123061930}
   m_SourcePrefab: {fileID: 100100000, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
 --- !u!4 &838728381 stripped
 Transform:
@@ -54877,6 +54880,14 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0.25, z: 1}
+--- !u!81 &2123061930
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123061920}
+  m_Enabled: 1
 --- !u!1001 &2123188960
 PrefabInstance:
   m_ObjectHideFlags: 0

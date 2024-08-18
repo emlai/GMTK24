@@ -43,7 +43,7 @@ MonoBehaviour:
     m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  near: 30
+  near: 0
   far: 100
   distanceFogIntensity: 0.999
   useHeight: 0
@@ -137,7 +137,7 @@ Material:
     - _HeightFogIntensity: 0.5
     - _HighWorldY: 35
     - _LowWorldY: 5
-    - _Near: 30
+    - _Near: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
