@@ -23112,6 +23112,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.149
       objectReference: {fileID: 0}
+    - target: {fileID: 2768765986595689750, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
+      propertyPath: m_Name
+      value: BoostParticles
+      objectReference: {fileID: 0}
     - target: {fileID: 6783363544839571305, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -23154,6 +23158,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8989238096501103104, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989238096501103104, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8989238096501103104, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
@@ -26366,6 +26374,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d73694aa24403234aab97a2c722aad5e, type: 3}
+--- !u!198 &921489552 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8989238096501103104, guid: 3f34c040e51ea914c82486aa4acb02ed, type: 3}
+  m_PrefabInstance: {fileID: 776084667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &922062819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 847975523ceb2914e839735ae6888e08, type: 3}
@@ -48977,6 +48990,7 @@ MonoBehaviour:
   movementSpeed: 10
   rotationSpeed: 300
   scaleSpeed: 0.75
+  boostParticles: {fileID: 921489552}
 --- !u!33 &1952909736
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -53062,6 +53076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardMoveSpeed: 10
+  growthFactor: 1
 --- !u!135 &2123061927
 SphereCollider:
   m_ObjectHideFlags: 0

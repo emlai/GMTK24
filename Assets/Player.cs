@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     // Reticle reticle;
     private Animator animator;
     bool scaling;
+    public ParticleSystem boostParticles;
 
     void Start()
     {
@@ -55,8 +56,14 @@ public class Player : MonoBehaviour
         // Debug.DrawRay(ship.transform.position, ship.transform.forward * 10000, Color.red, 1, false);
     }
 
-    // void Update()
-    // {
+    void Update()
+    {
+        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+        {
+            boostParticles.Stop();
+            boostParticles.Play();
+        }
+
     //     // if (reticle.raycastHit != null)
     //     // {
     //     //     var target = reticle.raycastHit.Value.collider.gameObject;
@@ -84,5 +91,5 @@ public class Player : MonoBehaviour
     //             ship.transform.DOScale(ship.transform.localScale * 0.5f, 0.5f).OnComplete(() => scaling = false);
     //         }
     //     }
-    // }
+    }
 }
