@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     public float forwardMoveSpeed;
     Player player;
     bool growing;
+    public float growthFactor = 1;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class Ship : MonoBehaviour
     {
         if (growing) return;
         growing = true;
-        transform.DOScale(transform.localScale * 2, 0.2f).SetEase(Ease.InOutBack).OnComplete(() => growing = false);
+        transform.DOScale(transform.localScale + Vector3.one * growthFactor, 0.2f).SetEase(Ease.InOutBack).OnComplete(() => growing = false);
     }
 
     public void OnTriggerEnter(Collider other)
