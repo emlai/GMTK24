@@ -57,6 +57,7 @@ public class Ship : MonoBehaviour
         }
 
         mouth.GetComponent<AudioSource>().Play();
+        Grow();
         Destroy(other);
     }
 }
