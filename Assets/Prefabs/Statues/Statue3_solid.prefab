@@ -62,12 +62,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacement: {fileID: 5281688674229837208, guid: ae23b2db7f013e84995afae6d45d01db, type: 3}
-  _explosionForce: 1000
   _explosionRadius: 10
   _broken: 0
   _breakForce: 0
   _collisionMultiplier: 1
-  _playerPushForce: 1000
 --- !u!95 &129243826595215119
 Animator:
   serializedVersion: 7
@@ -76,7 +74,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5281688674229837208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cf905bb6ab0553d4bac87ac2f38ac567, type: 2}
   m_CullingMode: 0
