@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _PixelSize: 0.003125
+    - _PixelSize: 0.0020833334
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf7a6fd37ee46709aa013efc3270aba, type: 3}
   m_Name: PixelationSettings
   m_EditorClassIdentifier: 
-  resolution: 320
+  resolution: 480
   renderEvent: 600
   applyInSceneView: 1
   effectMaterial: {fileID: -5631582012901772020}
