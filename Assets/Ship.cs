@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using FlatKit;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -14,12 +15,33 @@ public class Ship : MonoBehaviour
     public TextMeshProUGUI progressbar;
     public FogSettings fogSettings;
     public UniversalRendererData rendererData;
+    float energy = 0.333f; // range: 0-1
+    public float energyDepleteSpeed = 0.1f;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
-        UpdateFogColor(Color.black);
+        UpdateFogColor();
+        StartCoroutine(EnergyDepleteLoop());
+    }
+
+    IEnumerator EnergyDepleteLoop()
+    {
+        while (true)
+        {
+            var speedMult = 0.1f;
+            yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
+            energy -= 1f / 30f * speedMult;
+            if (energy < 0)
+            {
+                energy = 0;
+                // TODO: fade to black, game over screen
+            }
+
+            UpdateProgressbar();
+            UpdateFogColor();
+        }
     }
 
     void FixedUpdate()
@@ -52,7 +74,6 @@ public class Ship : MonoBehaviour
         transform.DOScaleX(newScale.x, 0.2f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
                 growing = false;
-                UpdateProgressbar();
             }
         );
     }
@@ -60,11 +81,12 @@ public class Ship : MonoBehaviour
     void UpdateProgressbar()
     {
         var weight = Mathf.Pow(2, transform.localScale.x) * 0.0005;
-        var progressValue = Mathf.CeilToInt(transform.localScale.x - 1);
         var maxProgress = 30;
+        var progressValue = (int)(energy * maxProgress);
+        Debug.Assert(progressValue >= 0 && progressValue <= maxProgress);
         var hyphens = new string('-', Mathf.Min(maxProgress, progressValue));
         var spaces = new string(' ', Mathf.Max(0, maxProgress - progressValue));
-        progressbar.text = $"Progress: [{hyphens}{spaces}]\nYour weight: {weight} KG";
+        progressbar.text = $"Energy: [{hyphens}{spaces}]\nYour weight: {weight} KG";
     }
 
 
@@ -94,18 +116,16 @@ public class Ship : MonoBehaviour
 
     public void GainEnergy()
     {
-        UpdateFogColor(Color.white);
+        energy += 0.1f;
+        if (energy > 1) energy = 1;
+        UpdateProgressbar();
+        UpdateFogColor();
     }
 
-    void UpdateFogColor(Color color)
+    void UpdateFogColor()
     {
-        // TODO
-        // var gradient = fogSettings.distanceGradient;
-        // Debug.Log(gradient.colorKeys[0].color);
-        // gradient.colorKeys = new[] { new GradientColorKey(color, 0), new GradientColorKey(color, 1) };
-        // Debug.Log(gradient.colorKeys[0].color);
-        // fogSettings.distanceGradient = gradient;
-        // Debug.Log(fogSettings.distanceGradient.colorKeys[0].color);
-        // Debug.Log("---");
+        var color = (Color.white * energy).WithAlpha(1);
+        fogSettings.distanceGradient.colorKeys = new[] { new GradientColorKey(color, 1) };
+        rendererData.SetDirty(); // force update after updating renderer feature settings. not sure if there's a better way to do this.
     }
 }

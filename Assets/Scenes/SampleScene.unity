@@ -46161,12 +46161,12 @@ MonoBehaviour:
   pausePanel: {fileID: 233978279}
   pauseView: {fileID: 2091543169}
   settingsView: {fileID: 394976054}
-  deathPanel: {fileID: 216710596}
-  winPanel: {fileID: 1736266608}
+  deathPanel: {fileID: 0}
+  winPanel: {fileID: 0}
   isPaused: 0
-  mouseSensitivity: 100
-  player: {fileID: 1952909735}
-  sensitivityDisplay: {fileID: 895360442}
+  mouseSensitivity: 0
+  player: {fileID: 0}
+  sensitivityDisplay: {fileID: 0}
 --- !u!1001 &1599360297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53428,7 +53428,7 @@ MonoBehaviour:
   rotationSpeed: 100
   scaleSpeed: 0.75
   boostParticles: {fileID: 921489552}
-  pauseMenu: {fileID: 1597778594}
+  pauseMenu: {fileID: 0}
 --- !u!33 &1952909736
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58297,7 +58297,8 @@ MonoBehaviour:
   growthFactor: 1.25
   progressbar: {fileID: 634449597}
   fogSettings: {fileID: 11400000, guid: f68defe9b6889484787a8d20c715e802, type: 2}
-  rendererData: {fileID: 0}
+  rendererData: {fileID: 11400000, guid: 4cbdadf2d11484d7aab34b901b5d9c52, type: 2}
+  energyDepleteSpeed: 2
 --- !u!135 &2123061927
 SphereCollider:
   m_ObjectHideFlags: 0
