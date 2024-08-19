@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject winPanel;
 	public bool isPaused = false;
 	public bool isGameEnd = false;
-	public float mouseSensitivity;
+	public float mouseSensitivity = 300;
 	[SerializeField] Player player;
 	
 
@@ -22,11 +22,12 @@ public class PauseMenu : MonoBehaviour
 
 	private void Awake()
 	{
-		DontDestroyOnLoad(this);
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	private void Start()
 	{
+		mouseSensitivity = 300;
 		sensitivityDisplay.text = mouseSensitivity.ToString();
 	}
 	void Update()

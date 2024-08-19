@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
     public ParticleSystem boostParticles;
     [SerializeField] PauseMenu pauseMenu;
 
-    void Start()
+	private void Awake()
+	{
+		rotationSpeed = pauseMenu.mouseSensitivity;
+	}
+	void Start()
     {
         ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
         animator = ship.GetComponentInChildren<Animator>();
