@@ -9928,6 +9928,14 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5237719298891890842, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fdd3989ec78c4f18a5d3aaf5d8aa8ba, type: 3}
+    - target: {fileID: 5237719298891890842, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fdd3989ec78c4f18a5d3aaf5d8aa8ba, type: 3}
+    - target: {fileID: 5237719298891890842, guid: e0e0a0d1973c67140be8c5d4f1548ae6, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
