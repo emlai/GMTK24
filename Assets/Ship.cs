@@ -121,7 +121,7 @@ public class Ship : MonoBehaviour
 
     public void GainEnergy()
     {
-        energy += 0.1f;
+        energy += 0.2f;
         if (energy > 1) energy = 1;
         UpdateProgressbar();
         UpdateFogColor();

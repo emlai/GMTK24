@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  particles: {fileID: 8724065878658133900, guid: 7024600143e46084db02dc0f4412a162, type: 3}
 --- !u!33 &8757448638347011340
 MeshFilter:
   m_ObjectHideFlags: 0

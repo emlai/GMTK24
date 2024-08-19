@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class LightSphere : MonoBehaviour
@@ -7,7 +7,8 @@ public class LightSphere : MonoBehaviour
     public float speed;
     float startTime;
     bool eaten;
-    public bool moveTowardsPlayer;
+    [NonSerialized] public bool moveTowardsPlayer;
+    public GameObject particles;
 
     void Start()
     {
@@ -25,18 +26,19 @@ public class LightSphere : MonoBehaviour
             transform.localScale = Vector3.one * Mathf.Clamp(distanceFromPlayer * 0.3f, 0.2f, 1f);
             if (distanceFromPlayer < 0.5f)
             {
-                StartCoroutine(GetEaten());
+                GetEaten();
             }
         }
     }
 
-    IEnumerator GetEaten()
+    void GetEaten()
     {
         eaten = true;
-        GetComponent<MeshRenderer>().enabled = false; // hide sphere
-        GetComponent<AudioSource>().Play();
+        // GetComponent<MeshRenderer>().enabled = false; // hide sphere
+        // GetComponent<AudioSource>().Play();
         player.GetComponent<Ship>().GainEnergy();
-        yield return new WaitForSeconds(1);
+        // yield return new WaitForSeconds(1);
+        Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
         Destroy(gameObject);
     }
 }
