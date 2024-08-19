@@ -17,9 +17,17 @@ public class Player : MonoBehaviour
 	{
 		rotationSpeed = pauseMenu.mouseSensitivity;
 	}
+
+
+	public void SetSensitivity()
+	{
+		rotationSpeed = PlayerPrefs.GetFloat("MouseSensitivity", 300);
+	}
+
 	void Start()
     {
-        ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
+        SetSensitivity();
+		ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
         animator = ship.GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;

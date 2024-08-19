@@ -13,21 +13,27 @@ public class PauseMenu : MonoBehaviour
 	public GameObject winPanel;
 	public bool isPaused = false;
 	public bool isGameEnd = false;
-	public float mouseSensitivity = 300;
+	public float mouseSensitivity;
 	[SerializeField] Player player;
 	
 
 	[SerializeField]
 	private TMP_Text sensitivityDisplay;
 
-	private void Awake()
+	public void SaveSettings()
 	{
-		DontDestroyOnLoad(this.gameObject);
+		PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
+		player.SetSensitivity();
+	}
+
+	public void LoadSettings()
+	{
+		mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 300);
 	}
 
 	private void Start()
 	{
-		mouseSensitivity = 300;
+		LoadSettings();
 		sensitivityDisplay.text = mouseSensitivity.ToString();
 	}
 	void Update()
@@ -45,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 				{
 					settingsView.SetActive(false);
 					pauseView.SetActive(true);
-					player.rotationSpeed = mouseSensitivity;
+					SaveSettings();
 				}
 				else
 				{
