@@ -57,13 +57,12 @@ public class Ship : MonoBehaviour
         }
 
         var z = Input.GetAxis("Vertical");
-        if (z >= 0) // Don't auto-move ship forward when player is manually moving backwards.
+        if (z >= 0 && !player.movementFrozen) // Don't auto-move ship forward when player is manually moving backwards, or when player movement is frozen.
         {
             // Auto-move forward
             var diff = transform.forward * forwardMoveSpeed * Time.fixedDeltaTime;
             transform.position += diff;
         }
-        // player.transform.position += diff;
     }
 
     public void Grow()

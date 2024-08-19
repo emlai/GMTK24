@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,8 +13,9 @@ public class Player : MonoBehaviour
     bool scaling;
     public ParticleSystem boostParticles;
     [SerializeField] PauseMenu pauseMenu;
+    [NonSerialized] public bool movementFrozen;
 
-	private void Awake()
+    void Awake()
 	{
 		rotationSpeed = pauseMenu.mouseSensitivity;
 	}
@@ -37,6 +39,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (movementFrozen) return;
+
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("UpDownThrust");
         var z = Input.GetAxis("Vertical");
@@ -72,6 +76,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (movementFrozen) return;
+
         if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0)
         {
             boostParticles.Stop();
@@ -105,5 +111,10 @@ public class Player : MonoBehaviour
     //             ship.transform.DOScale(ship.transform.localScale * 0.5f, 0.5f).OnComplete(() => scaling = false);
     //         }
     //     }
+    }
+
+    public void FreezeMovement()
+    {
+        movementFrozen = true;
     }
 }

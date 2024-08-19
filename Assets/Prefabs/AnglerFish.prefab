@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7004757494979897173}
   - component: {fileID: 7457924870186568869}
   - component: {fileID: 4917893832039769581}
+  - component: {fileID: 6136846342779891140}
+  - component: {fileID: 6275607160297005048}
   m_Layer: 0
   m_Name: AnglerFish
   m_TagString: Untagged
@@ -147,6 +149,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &6136846342779891140
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112394009335364836}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: -2.68, z: 5.53}
+--- !u!114 &6275607160297005048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112394009335364836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69ea489543f94b188f34960023e6508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5892581040262486459
 PrefabInstance:
   m_ObjectHideFlags: 0
