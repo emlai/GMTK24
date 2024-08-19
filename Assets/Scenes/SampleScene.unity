@@ -29408,10 +29408,10 @@ MonoBehaviour:
         z: 4.2084017
       Rotation:
         value:
-          x: 1.0023278e-19
-          y: 0.88675386
-          z: 1.9228407e-19
-          w: -0.46224186
+          x: 1.00232784e-19
+          y: 0.8867539
+          z: 1.9228409e-19
+          w: -0.4622419
     - Position:
         x: 28.59
         y: -1.48
@@ -29426,28 +29426,10 @@ MonoBehaviour:
         z: 4.2084017
       Rotation:
         value:
-          x: 1.0023278e-19
-          y: 0.88675386
-          z: 1.9228407e-19
-          w: -0.46224186
-    - Position:
-        x: 0.53
-        y: 0.4
-        z: -2.75
-      TangentIn:
-        x: 0
-        y: 0
-        z: -23.91788
-      TangentOut:
-        x: 0
-        y: 0
-        z: 23.91788
-      Rotation:
-        value:
-          x: 3.1040247e-23
-          y: -0.17517368
-          z: -1.74457e-22
-          w: 0.98453754
+          x: 1.00232784e-19
+          y: 0.8867539
+          z: 1.9228409e-19
+          w: -0.4622419
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -29460,8 +29442,6 @@ MonoBehaviour:
     - Mode: 0
       Tension: 0.5
     - Mode: 0
-      Tension: 0.5
-    - Mode: 2
       Tension: 0.5
     - Mode: 2
       Tension: 0.5
@@ -29592,20 +29572,24 @@ MonoBehaviour:
   - prefab: {fileID: 0}
     Prefab: {fileID: 5281688674229837208, guid: 96a22a68a7197b54aabb6edfea404c07, type: 3}
     probability: 0
-    Probability: 0
+    Probability: 50
   - prefab: {fileID: 0}
     Prefab: {fileID: 5281688674229837208, guid: 19931e5afbdecd44f92fc5ce59d6c65a, type: 3}
     probability: 0
-    Probability: 0
+    Probability: 50
   - prefab: {fileID: 0}
     Prefab: {fileID: 5281688674229837208, guid: ef7a94ec50508ad4690d38d5a7de849e, type: 3}
     probability: 0
     Probability: 0
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 9112394009335364836, guid: dbeafed842c0f4f4bbfc5f91058d78c1, type: 3}
+    probability: 0
+    Probability: 10
   m_Method: 1
   m_Space: 0
-  m_Spacing: {x: 50, y: 50}
+  m_Spacing: {x: 100, y: 100}
   m_Up: 1
-  m_Forward: 2
+  m_Forward: 5
   m_PositionOffset:
     setup: 0
     min: {x: 0, y: 0, z: 0}
@@ -29632,7 +29616,7 @@ MonoBehaviour:
     space: 0
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
-  m_Seed: 1936237320
+  m_Seed: -1168759113
 --- !u!1001 &959771069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51332,7 +51316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1822583147
 MonoBehaviour:
   m_ObjectHideFlags: 0

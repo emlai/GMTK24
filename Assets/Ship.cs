@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -32,11 +33,16 @@ public class Ship : MonoBehaviour
         {
             var speedMult = 0.1f;
             yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
+            if (energy <= 0)
+            {
+                // TODO: fade to black, game over screen
+                SceneManager.LoadScene(0);
+                yield break;
+            }
             energy -= 1f / 30f * speedMult;
             if (energy < 0)
             {
                 energy = 0;
-                // TODO: fade to black, game over screen
             }
 
             UpdateProgressbar();
