@@ -58283,6 +58283,7 @@ MonoBehaviour:
   fogSettings: {fileID: 11400000, guid: f68defe9b6889484787a8d20c715e802, type: 2}
   rendererData: {fileID: 11400000, guid: 4cbdadf2d11484d7aab34b901b5d9c52, type: 2}
   energyDepleteSpeed: 2
+  deathScreen: {fileID: 216710596}
 --- !u!135 &2123061927
 SphereCollider:
   m_ObjectHideFlags: 0

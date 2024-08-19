@@ -5,7 +5,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class Ship : MonoBehaviour
     public UniversalRendererData rendererData;
     float energy = 0.333f; // range: 0-1
     public float energyDepleteSpeed = 0.1f;
+    public GameObject deathScreen;
 
     void Start()
     {
@@ -35,8 +35,7 @@ public class Ship : MonoBehaviour
             yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
             if (energy <= 0)
             {
-                // TODO: fade to black, game over screen
-                SceneManager.LoadScene(0);
+                deathScreen.SetActive(true);
                 yield break;
             }
             energy -= 1f / 30f * speedMult;
