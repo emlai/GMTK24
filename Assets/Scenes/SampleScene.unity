@@ -28179,6 +28179,7 @@ GameObject:
   - component: {fileID: 957526672}
   - component: {fileID: 957526671}
   - component: {fileID: 957526673}
+  - component: {fileID: 957526674}
   m_Layer: 0
   m_Name: Spline
   m_TagString: Untagged
@@ -28216,22 +28217,22 @@ MonoBehaviour:
     m_Knots:
     - Position:
         x: 0.53
-        y: -4.56
+        y: -1.28
         z: -1.1299992
       TangentIn:
         x: -0
         y: -0
-        z: -2.9488916
+        z: -2.916232
       TangentOut:
         x: 0
         y: 0
-        z: 2.9488916
+        z: 2.916232
       Rotation:
         value:
-          x: -0.077508524
-          y: -0.015734486
-          z: -0.00329751
-          w: 0.9968621
+          x: -0.021915954
+          y: -0.015661499
+          z: -0.0024386155
+          w: 0.99963427
     - Position:
         x: -0.38
         y: 0
@@ -28239,17 +28240,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -7.098998
+        z: -7.0425396
       TangentOut:
         x: 0
         y: 0
-        z: 5.0374417
+        z: 5.0252843
       Rotation:
         value:
-          x: -0.057969853
-          y: 0.24133678
-          z: 0.015620153
-          w: 0.9685825
+          x: -0.026971465
+          y: 0.24011216
+          z: 0.008023989
+          w: 0.9703372
     - Position:
         x: 12.11
         y: 0.8
@@ -29283,6 +29284,76 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
   m_Seed: 1026967972
+--- !u!114 &957526674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957526670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Container: {fileID: 957526671}
+  m_ItemsToInstantiate:
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: 958be672aead5f345a6475dca6dfa716, type: 3}
+    probability: 0
+    Probability: 1
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: 847975523ceb2914e839735ae6888e08, type: 3}
+    probability: 0
+    Probability: 1
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: 91cb807b5d6326447928760ed503d9f3, type: 3}
+    probability: 0
+    Probability: 1
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: 1dadb3304d4522d4ab8d6f3b536acf82, type: 3}
+    probability: 0
+    Probability: 1
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: 193e5f1c6ef02c14cb2d4865a6a7153d, type: 3}
+    probability: 0
+    Probability: 1
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 919132149155446097, guid: d73694aa24403234aab97a2c722aad5e, type: 3}
+    probability: 0
+    Probability: 1
+  m_Method: 1
+  m_Space: 0
+  m_Spacing: {x: 10, y: 10}
+  m_Up: 1
+  m_Forward: 2
+  m_PositionOffset:
+    setup: 1
+    min: {x: -10, y: -10, z: -10}
+    max: {x: 10, y: 10, z: 10}
+    randomX: 1
+    randomY: 1
+    randomZ: 1
+    space: 0
+  m_RotationOffset:
+    setup: 1
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 360, y: 360, z: 360}
+    randomX: 1
+    randomY: 1
+    randomZ: 1
+    space: 0
+  m_ScaleOffset:
+    setup: 1
+    min: {x: 1, y: 1, z: 1}
+    max: {x: 100, y: 100, z: 100}
+    randomX: 1
+    randomY: 1
+    randomZ: 1
+    space: 0
+  m_DeprecatedInstances: []
+  m_AutoRefresh: 1
+  m_Seed: -615738634
 --- !u!1001 &959771069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36261,7 +36332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1214759167
 Transform:
   m_ObjectHideFlags: 0
