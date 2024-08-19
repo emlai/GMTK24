@@ -52682,7 +52682,7 @@ MonoBehaviour:
   rotationSpeed: 100
   scaleSpeed: 0.75
   boostParticles: {fileID: 921489552}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1597778594}
 --- !u!33 &1952909736
 MeshFilter:
   m_ObjectHideFlags: 0

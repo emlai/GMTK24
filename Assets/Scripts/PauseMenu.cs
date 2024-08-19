@@ -20,6 +20,11 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField]
 	private TMP_Text sensitivityDisplay;
 
+	private void Awake()
+	{
+		DontDestroyOnLoad(this);
+	}
+
 	private void Start()
 	{
 		sensitivityDisplay.text = mouseSensitivity.ToString();
