@@ -25087,7 +25087,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       propertyPath: m_LocalScale.y
@@ -25139,7 +25139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d87fa2452ef998940bbcd2caef87994e, type: 3}
       propertyPath: m_Enabled
@@ -54854,7 +54854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardMoveSpeed: 10
-  growthFactor: 1
+  growthFactor: 1.25
   progressbar: {fileID: 634449597}
 --- !u!135 &2123061927
 SphereCollider:
