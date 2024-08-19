@@ -12,18 +12,13 @@ public class PauseMenu : MonoBehaviour
 	public GameObject deathPanel;
 	public GameObject winPanel;
 	public bool isPaused = false;
+	public bool isGameEnd = false;
 	public float mouseSensitivity;
 	[SerializeField] Player player;
+	
 
 	[SerializeField]
 	private TMP_Text sensitivityDisplay;
-
-	// Update is called once per frame
-
-	//void Awake()
-	//{
-	//	DontDestroyOnLoad(transform.gameObject);
-	//}
 
 	private void Start()
 	{
@@ -33,7 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (!isPaused)
+			if (!isPaused && !winPanel.activeSelf && !deathPanel.activeSelf)
 			{
 				isPaused = true;
 				Pause();
