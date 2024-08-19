@@ -40871,7 +40871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1487060974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40913,7 +40913,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Controls:
 
-    Mouse - Rotate Camera
+    Mouse - Turn
 
     W/S - Move Forward/Backward
 
@@ -40922,10 +40922,7 @@ MonoBehaviour:
 
     Shift/Ctrl - Move Up/Down
 
-    E/Q - Scale Up/Down
-
-    R
-    - Restart'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}

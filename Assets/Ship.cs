@@ -19,9 +19,9 @@ public class Ship : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.G))
         {
-            transform.position = Vector3.zero;
+            Grow();
         }
 
         var z = Input.GetAxis("Vertical");
