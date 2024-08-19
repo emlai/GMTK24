@@ -2,7 +2,6 @@ using System.Collections;
 using DG.Tweening;
 using FlatKit;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -130,7 +129,8 @@ public class Ship : MonoBehaviour
 
     void UpdateFogColor()
     {
-        var color = (Color.white * energy).WithAlpha(1);
+        var color = Color.white * energy;
+        color.a = 1;
         fogSettings.distanceGradient.colorKeys = new[] { new GradientColorKey(color, 1) };
         rendererData.SetDirty(); // force update after updating renderer feature settings. not sure if there's a better way to do this.
     }
