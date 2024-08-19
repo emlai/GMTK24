@@ -35,7 +35,7 @@ public class LightSphere : MonoBehaviour
         eaten = true;
         GetComponent<MeshRenderer>().enabled = false; // hide sphere
         GetComponent<AudioSource>().Play();
-        // player.GetComponent<Ship>().Grow();
+        player.GetComponent<Ship>().GainEnergy();
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }

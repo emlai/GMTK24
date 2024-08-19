@@ -55,5 +55,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 480
   renderEvent: 600
-  applyInSceneView: 1
+  applyInSceneView: 0
   effectMaterial: {fileID: -5631582012901772020}

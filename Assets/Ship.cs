@@ -1,7 +1,9 @@
 using System.Collections;
 using DG.Tweening;
+using FlatKit;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Ship : MonoBehaviour
 {
@@ -10,11 +12,14 @@ public class Ship : MonoBehaviour
     bool growing;
     public float growthFactor = 1;
     public TextMeshProUGUI progressbar;
+    public FogSettings fogSettings;
+    public UniversalRendererData rendererData;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
+        UpdateFogColor(Color.black);
     }
 
     void FixedUpdate()
@@ -55,7 +60,7 @@ public class Ship : MonoBehaviour
     void UpdateProgressbar()
     {
         var weight = Mathf.Pow(2, transform.localScale.x) * 0.0005;
-        var progressValue = (int)transform.localScale.x - 1;
+        var progressValue = Mathf.CeilToInt(transform.localScale.x - 1);
         var maxProgress = 30;
         var hyphens = new string('-', Mathf.Min(maxProgress, progressValue));
         var spaces = new string(' ', Mathf.Max(0, maxProgress - progressValue));
@@ -85,5 +90,22 @@ public class Ship : MonoBehaviour
         mouth.GetComponent<AudioSource>().Play();
         Grow();
         Destroy(other);
+    }
+
+    public void GainEnergy()
+    {
+        UpdateFogColor(Color.white);
+    }
+
+    void UpdateFogColor(Color color)
+    {
+        // TODO
+        // var gradient = fogSettings.distanceGradient;
+        // Debug.Log(gradient.colorKeys[0].color);
+        // gradient.colorKeys = new[] { new GradientColorKey(color, 0), new GradientColorKey(color, 1) };
+        // Debug.Log(gradient.colorKeys[0].color);
+        // fogSettings.distanceGradient = gradient;
+        // Debug.Log(fogSettings.distanceGradient.colorKeys[0].color);
+        // Debug.Log("---");
     }
 }
