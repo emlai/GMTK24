@@ -18,6 +18,7 @@ public class Ship : MonoBehaviour
     float energy = 0.333f; // range: 0-1
     public float energyDepleteSpeed = 0.1f;
     public GameObject deathScreen;
+    public float energyPerLightball = 0.25f;
 
     void Start()
     {
@@ -121,7 +122,7 @@ public class Ship : MonoBehaviour
 
     public void GainEnergy()
     {
-        energy += 0.2f;
+        energy += energyPerLightball;
         if (energy > 1) energy = 1;
         UpdateProgressbar();
         UpdateFogColor();

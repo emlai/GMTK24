@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 	public bool isGameEnd = false;
 	public float mouseSensitivity = 300;
 	[SerializeField] Player player;
-	
+
 
 	[SerializeField]
 	private TMP_Text sensitivityDisplay;
