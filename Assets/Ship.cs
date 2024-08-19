@@ -16,8 +16,9 @@ public class Ship : MonoBehaviour
     public UniversalRendererData rendererData;
     float energy = 0.333f; // range: 0-1
     public float energyDepleteSpeed = 0.1f;
-    public GameObject deathScreen;
+    public PauseMenu pauseMenu;
     public float energyPerLightball = 0.25f;
+    float boostTime;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Ship : MonoBehaviour
             yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
             if (energy <= 0)
             {
-                deathScreen.SetActive(true);
+                pauseMenu.Die();
                 yield break;
             }
             energy -= 1f / 30f * speedMult;
@@ -60,7 +61,10 @@ public class Ship : MonoBehaviour
         if (z >= 0 && !player.movementFrozen) // Don't auto-move ship forward when player is manually moving backwards, or when player movement is frozen.
         {
             // Auto-move forward
-            var diff = transform.forward * forwardMoveSpeed * Time.fixedDeltaTime;
+            var timeSinceBoost = Time.time - boostTime;
+            var boostDuration = 1f;
+            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4 : 1;
+            var diff = transform.forward * forwardMoveSpeed * boostMult * Time.fixedDeltaTime;
             transform.position += diff;
         }
     }
@@ -121,9 +125,14 @@ public class Ship : MonoBehaviour
     public void GainEnergy()
     {
         energy += energyPerLightball;
-        if (energy > 1) energy = 1;
+        if (energy > 1)
+        {
+            energy = 1;
+            pauseMenu.Win();
+        }
         UpdateProgressbar();
         UpdateFogColor();
+        boostTime = Time.time;
     }
 
     void UpdateFogColor()
