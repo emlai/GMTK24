@@ -38,7 +38,13 @@ public class Ship : MonoBehaviour
     {
         if (growing) return;
         growing = true;
-        transform.DOScale(transform.localScale + Vector3.one * growthFactor, 0.2f).SetEase(Ease.InOutBack).OnComplete(() =>
+        var newScale = transform.localScale + Vector3.one * growthFactor;
+        foreach (var shrimp in GameObject.FindGameObjectsWithTag("Shrimp"))
+        {
+            shrimp.transform.localScale = newScale;
+        }
+
+        transform.DOScale(newScale, 0.2f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
                 growing = false;
                 UpdateProgressbar();

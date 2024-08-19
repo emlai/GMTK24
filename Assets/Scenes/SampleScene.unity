@@ -46013,7 +46013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Developed by Emil Laine & kauheaa
+  m_text: Developed by Flogram & kauheaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
