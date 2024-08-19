@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     bool scaling;
     public ParticleSystem boostParticles;
+    [SerializeField] PauseMenu pauseMenu;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
+		rotationSpeed = pauseMenu.mouseSensitivity;
+	}
 
     void FixedUpdate()
     {
