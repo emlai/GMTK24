@@ -1,8 +1,5 @@
 using UnityEngine;
-using Unity.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using System.Collections;
 
 public class WinScreenControls : MonoBehaviour
 {
