@@ -20793,9 +20793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Progress: [--------------------------]
-
-    Your weight: 1 gram'
+  m_text: 'LIGHTNESS [-------------                ]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
@@ -57662,9 +57660,10 @@ MonoBehaviour:
   progressbar: {fileID: 634449597}
   fogSettings: {fileID: 11400000, guid: f68defe9b6889484787a8d20c715e802, type: 2}
   rendererData: {fileID: 11400000, guid: 4cbdadf2d11484d7aab34b901b5d9c52, type: 2}
-  energyDepleteSpeed: 2
+  initialEnergy: 0.5
+  energyDepleteSpeed: 4
   pauseMenu: {fileID: 1597778594}
-  energyPerLightball: 0.2
+  energyPerLightball: 0.3
 --- !u!135 &2123061927
 SphereCollider:
   m_ObjectHideFlags: 0

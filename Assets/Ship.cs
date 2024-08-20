@@ -14,14 +14,17 @@ public class Ship : MonoBehaviour
     public TextMeshProUGUI progressbar;
     public FogSettings fogSettings;
     public UniversalRendererData rendererData;
-    float energy = 0.333f; // range: 0-1
+    [Range(0, 1)] public float initialEnergy = 0.5f;
+    float energy; // range: 0-1
     public float energyDepleteSpeed = 0.1f;
     public PauseMenu pauseMenu;
+    [Range(0, 1)]
     public float energyPerLightball = 0.25f;
     float boostTime;
 
     void Start()
     {
+        energy = initialEnergy;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
         UpdateFogColor();
@@ -93,7 +96,7 @@ public class Ship : MonoBehaviour
         Debug.Assert(progressValue >= 0 && progressValue <= maxProgress);
         var hyphens = new string('-', Mathf.Min(maxProgress, progressValue));
         var spaces = new string(' ', Mathf.Max(0, maxProgress - progressValue));
-        progressbar.text = $"ENERGY [{hyphens}{spaces}]";
+        progressbar.text = $"LIGHTNESS [{hyphens}{spaces}]";
     }
 
     public void OnTriggerEnter(Collider other)
