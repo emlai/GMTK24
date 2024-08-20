@@ -88,15 +88,13 @@ public class Ship : MonoBehaviour
 
     void UpdateProgressbar()
     {
-        var weight = Mathf.Pow(2, transform.localScale.x) * 0.0005;
         var maxProgress = 30;
         var progressValue = (int)(energy * maxProgress);
         Debug.Assert(progressValue >= 0 && progressValue <= maxProgress);
         var hyphens = new string('-', Mathf.Min(maxProgress, progressValue));
         var spaces = new string(' ', Mathf.Max(0, maxProgress - progressValue));
-        progressbar.text = $"Energy: [{hyphens}{spaces}]\nYour weight: {weight} KG";
+        progressbar.text = $"ENERGY [{hyphens}{spaces}]";
     }
-
 
     public void OnTriggerEnter(Collider other)
     {
