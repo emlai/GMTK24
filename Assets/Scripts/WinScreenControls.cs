@@ -13,6 +13,11 @@ public class WinScreenControls : MonoBehaviour
 		{
 			fadeOut.SetTrigger("Start");
 		}
+
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			Quit();
+		}
 	}
 	public void Quit()
 	{
