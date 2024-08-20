@@ -6,7 +6,6 @@ public class DontDestroyOnLoad : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(instance);
         // Avoid duplicates of this gameobject when loading scenes.
         if (instance == null)
         {
