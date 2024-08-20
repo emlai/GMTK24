@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject pausePanel;
 	public GameObject pauseView;
 	public GameObject settingsView;
+	public GameObject fadeIn;
 	public GameObject deathPanel;
 	public GameObject winPanel;
 	public bool isPaused = false;
@@ -40,23 +41,26 @@ public class PauseMenu : MonoBehaviour
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (!isPaused && !winPanel.activeSelf && !deathPanel.activeSelf)
+			if (!fadeIn.activeSelf)
 			{
-				isPaused = true;
-				Pause();
-			}
-			else
-			{
-				if (settingsView.activeSelf)
+				if (!isPaused && !winPanel.activeSelf && !deathPanel.activeSelf && !fadeIn.activeSelf)
 				{
-					settingsView.SetActive(false);
-					pauseView.SetActive(true);
-					SaveSettings();
+					isPaused = true;
+					Pause();
 				}
 				else
 				{
-					isPaused = false;
-					Continue();
+					if (settingsView.activeSelf)
+					{
+						settingsView.SetActive(false);
+						pauseView.SetActive(true);
+						SaveSettings();
+					}
+					else
+					{
+						isPaused = false;
+						Continue();
+					}
 				}
 			}
 		}
@@ -67,6 +71,15 @@ public class PauseMenu : MonoBehaviour
 			{
 				settingsView.SetActive(true);
 				pauseView.SetActive(false);
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (fadeIn.activeSelf)
+			{
+				Time.timeScale = 1f;
+				fadeIn.SetActive(false);
 			}
 		}
 
@@ -114,12 +127,24 @@ public class PauseMenu : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			SensitivityUp();
+			if (settingsView.activeSelf)
+			{
+				SensitivityUp();
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			SensitivityDown();
+			if (settingsView.activeSelf)
+			{
+				SensitivityDown();
+			}
+
+		}
+
+		if (Input.GetKeyDown(KeyCode.V))
+		{
+			Win();
 		}
 
 		if (Input.GetKeyDown(KeyCode.L))
