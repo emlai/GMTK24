@@ -20,7 +20,7 @@ public class Ship : MonoBehaviour
     public PauseMenu pauseMenu;
     [Range(0, 1)]
     public float energyPerLightball = 0.25f;
-    float boostTime;
+    float boostTime = -999;
 
     void Start()
     {
@@ -63,10 +63,10 @@ public class Ship : MonoBehaviour
         var z = Input.GetAxis("Vertical");
         if (z >= 0 && !player.movementFrozen) // Don't auto-move ship forward when player is manually moving backwards, or when player movement is frozen.
         {
-            // Auto-move forward
+            // Boost
             var timeSinceBoost = Time.time - boostTime;
-            var boostDuration = 1f;
-            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4 : 1;
+            var boostDuration = 1.1f;
+            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4.1f : z > 0 ? 1 : 0;
             var diff = transform.forward * forwardMoveSpeed * boostMult * Time.fixedDeltaTime;
             transform.position += diff;
         }

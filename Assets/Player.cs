@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 		ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
         animator = ship.GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
+        Mouse.current.WarpCursorPosition(new Vector2(Screen.width, Screen.height) / 2);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 		rotationSpeed = pauseMenu.mouseSensitivity;

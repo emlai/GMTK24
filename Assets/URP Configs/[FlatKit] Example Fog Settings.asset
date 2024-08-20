@@ -15,8 +15,8 @@ MonoBehaviour:
   useDistance: 1
   distanceGradient:
     serializedVersion: 2
-    key0: {r: 0.4566667, g: 0.4566667, b: 0.4566667, a: 0}
-    key1: {r: 0.4566667, g: 0.4566667, b: 0.4566667, a: 1}
+    key0: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   near: 0
-  far: 100
-  distanceFogIntensity: 1
+  far: 90
+  distanceFogIntensity: 0.999
   useHeight: 0
   heightGradient:
     serializedVersion: 2
@@ -131,9 +131,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DistanceFogIntensity: 1
+    - _DistanceFogIntensity: 0.999
     - _DistanceHeightBlend: 0.5
-    - _Far: 100
+    - _Far: 90
     - _HeightFogIntensity: 0.5
     - _HighWorldY: 35
     - _LowWorldY: 5
