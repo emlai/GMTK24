@@ -4279,8 +4279,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gather the light, not for yourself but to guide others, for in illuminating
-    their path, you also banish the darkness around you. -Oprah
+  m_text: You have to know what sparks the light in you so that you, in your own
+    way, can illuminate the world. -Oprah
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 7bd8dce322442464dbfd621f1f0ae003, type: 2}
