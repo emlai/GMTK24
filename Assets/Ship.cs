@@ -65,8 +65,8 @@ public class Ship : MonoBehaviour
         {
             // Boost
             var timeSinceBoost = Time.time - boostTime;
-            var boostDuration = 1.1f;
-            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4.1f : z > 0 ? 1 : 0;
+            var boostDuration = 1f;
+            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4f : z > 0 ? 1 : 0;
             var diff = transform.forward * forwardMoveSpeed * boostMult * Time.fixedDeltaTime;
             transform.position += diff;
         }
