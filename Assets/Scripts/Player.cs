@@ -39,39 +39,25 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (movementFrozen) return;
-
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("UpDownThrust");
-        var z = Input.GetAxis("Vertical");
-        // transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        if (z > 0)
+        if (!movementFrozen)
         {
-            animator.speed = 3;
-        }
-        else
-        {
-            animator.speed = 1;
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("UpDownThrust");
+            var z = Input.GetAxis("Vertical");
+            ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
+            if (z > 0)
+            {
+                animator.speed = 3;
+            }
+            else
+            {
+                animator.speed = 1;
+            }
         }
 
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
-        // transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
         ship.transform.Rotate(new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime);
-
-        // var scaleDiff = Input.GetAxis("Scale") * scaleSpeed;
-        // Debug.Log($"{scaleDiff} {Mathf.Pow(scaleDiff, Time.fixedDeltaTime)}");
-        // Camera.main.fieldOfView += scaleDiff * Time.fixedDeltaTime;
-        // ship.transform.localScale *= Mathf.Pow(1 + scaleDiff, Time.fixedDeltaTime);
-
-
-        // var allObjects = FindObjectsByType<Transform>(FindObjectsSortMode.None);
-        // foreach (var obj in allObjects)
-        // {
-        //     obj.localScale *= Mathf.Pow(1 - scaleDiff, Time.fixedDeltaTime);
-        // }
-        // Debug.DrawRay(ship.transform.position, ship.transform.forward * 10000, Color.red, 1, false);
     }
 
     void Update()

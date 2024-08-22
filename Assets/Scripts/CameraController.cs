@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     public float followSpeed;
     public float rotationSpeed = 1;
-    bool farAwayCameraMode;
+    internal bool farAwayCameraMode;
     Vector3 targetPos
     {
         get
@@ -21,7 +21,6 @@ public class CameraController : MonoBehaviour
             return target.position + target.rotation * offset;
         }
     }
-    // private Vector3 targetPos => target.position + target.rotation * (offset * (target.localScale.x));
 
     void Start()
     {
@@ -30,21 +29,7 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // var sizeMult = 1 / target.localScale.x; // increase follow speed when ship is smaller and vice versa
-        if (farAwayCameraMode)
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.fixedDeltaTime * 0.1f);
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.fixedDeltaTime);
-        }
-
+        transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.fixedDeltaTime * (farAwayCameraMode ? 0.5f : 1));
         transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, rotationSpeed * Time.fixedDeltaTime);
-    }
-
-    public void EnterFarAwayCameraMode()
-    {
-        farAwayCameraMode = true;
     }
 }

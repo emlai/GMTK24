@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-    public GameObject targetToChase;
+    GameObject targetToChase;
     public float triggerDistance = 100;
     public float chaseSpeed = 10;
     public float turnSpeed = 10;
@@ -10,16 +10,17 @@ public class Chaser : MonoBehaviour
 
     private void Start()
     {
-        if (targetToChase == null)
-        {
-            targetToChase = GameObject.FindGameObjectWithTag("Player");
-        }
+        targetToChase = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void FixedUpdate()
     {
-        var lookAtTarget = Quaternion.LookRotation(targetToChase.transform.position - transform.position, targetToChase.transform.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookAtTarget, turnSpeed * Time.fixedDeltaTime);
+        var forward = targetToChase.transform.position - transform.position;
+        if (forward != Vector3.zero)
+        {
+            var lookAtTarget = Quaternion.LookRotation(forward, targetToChase.transform.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookAtTarget, turnSpeed * Time.fixedDeltaTime);
+        }
 
         if (chasing)
         {

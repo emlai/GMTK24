@@ -39,8 +39,7 @@ public class GameManager : MonoBehaviour
                 fadeToColorOverlay.color = color;
                 if (color.a >= 1)
                 {
-                    player.pauseMenu.Die();
-                    player.dead = true;
+                    player.Die();
                 }
             }
             else

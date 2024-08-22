@@ -22,9 +22,11 @@ public class Ship : MonoBehaviour
     public GameManager gameManager;
     internal bool dead;
     internal float energyDepletedTime;
+    internal Transform mouth;
 
     void Start()
     {
+        mouth = transform.Find("MouthPosition");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
         gameManager.UpdateFogColor(energy);
@@ -107,8 +109,6 @@ public class Ship : MonoBehaviour
 
     IEnumerator Eat(GameObject other)
     {
-        var mouth = transform.Find("MouthPosition");
-
         while (Vector3.Distance(other.gameObject.transform.position, mouth.position) > 0.1f)
         {
             var dir = (mouth.position - other.gameObject.transform.position).normalized;
@@ -132,5 +132,11 @@ public class Ship : MonoBehaviour
         UpdateProgressbar();
         gameManager.UpdateFogColor(energy);
         boostTime = Time.time;
+    }
+
+    public void Die()
+    {
+        dead = true;
+        pauseMenu.Die();
     }
 }
