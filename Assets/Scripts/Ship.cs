@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using FlatKit;
@@ -12,18 +13,18 @@ public class Ship : MonoBehaviour
     bool growing;
     public float growthFactor = 1;
     public TextMeshProUGUI progressbar;
-    [Range(0, 1)] public float initialEnergy = 0.5f;
-    float energy; // range: 0-1
+    [Range(0, 1)] public float energy;
     public float energyDepleteSpeed = 0.1f;
     public PauseMenu pauseMenu;
     [Range(0, 1)]
     public float energyPerLightball = 0.25f;
     float boostTime;
     public GameManager gameManager;
+    internal bool dead;
+    internal float energyDepletedTime;
 
     void Start()
     {
-        energy = initialEnergy;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
         gameManager.UpdateFogColor(energy);
@@ -32,19 +33,17 @@ public class Ship : MonoBehaviour
 
     IEnumerator EnergyDepleteLoop()
     {
-        while (true)
+        while (!dead)
         {
             var speedMult = 0.1f;
             yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
+            var prevEnergy = energy;
+            energy -= 1f / 30f * speedMult;
             if (energy <= 0)
             {
-                pauseMenu.Die();
-                yield break;
-            }
-            energy -= 1f / 30f * speedMult;
-            if (energy < 0)
-            {
                 energy = 0;
+                if (prevEnergy > 0)
+                    energyDepletedTime = Time.time;
             }
 
             UpdateProgressbar();
