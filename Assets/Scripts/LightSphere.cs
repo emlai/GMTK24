@@ -12,7 +12,7 @@ public class LightSphere : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Ship");
+        player = GameObject.FindGameObjectWithTag("Player");
         startTime = Time.time;
     }
 

@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public Vector3 offset;
     public float followSpeed;
-    public float rotationSpeed = 1;
+    public float rotationSpeed;
     internal bool farAwayCameraMode;
     Vector3 targetPos
     {

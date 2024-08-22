@@ -12,7 +12,7 @@ public class Anglerfish : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Ship").transform;
+        player = GameObject.FindWithTag("Player").transform;
         chaser = GetComponent<Chaser>();
         GetComponentInChildren<Animator>().Play("Swim");
         originalTurnSpeed = chaser.turnSpeed;
@@ -66,7 +66,7 @@ public class Anglerfish : MonoBehaviour
 
         if (playerInsideHitZone)
         {
-            var player = GameObject.FindWithTag("Ship").GetComponent<Ship>();
+            var player = GameObject.FindWithTag("Player").GetComponent<Ship>();
             GetComponent<Animator>().StopPlayback();
             chaser.turnSpeed = 20;
             Invoke(nameof(StopChasing), 0.1f);

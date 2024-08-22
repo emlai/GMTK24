@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public float rotationSpeed;
     [Range(0.01f, 1f)]
     public float scaleSpeed;
-    Ship ship;
     // Reticle reticle;
     private Animator animator;
     bool scaling;
@@ -15,26 +14,18 @@ public class Player : MonoBehaviour
     [SerializeField] PauseMenu pauseMenu;
     [NonSerialized] public bool movementFrozen;
 
-    void Awake()
+    public void SetSensitivity()
 	{
-		rotationSpeed = pauseMenu.mouseSensitivity;
-	}
-
-
-	public void SetSensitivity()
-	{
-		rotationSpeed = PlayerPrefs.GetFloat("MouseSensitivity", 300);
+        rotationSpeed = PlayerPrefs.GetFloat("MouseSensitivity", rotationSpeed);
 	}
 
 	void Start()
     {
         SetSensitivity();
-		ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
-        animator = ship.GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-		rotationSpeed = pauseMenu.mouseSensitivity;
 	}
 
     void FixedUpdate()
@@ -44,7 +35,7 @@ public class Player : MonoBehaviour
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("UpDownThrust");
             var z = Input.GetAxis("Vertical");
-            ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
+            transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
             if (z > 0)
             {
                 animator.speed = 3;
@@ -57,7 +48,7 @@ public class Player : MonoBehaviour
 
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
-        ship.transform.Rotate(new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime);
+        transform.Rotate(new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime);
     }
 
     void Update()

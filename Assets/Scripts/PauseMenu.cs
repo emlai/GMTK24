@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
 	public void LoadSettings()
 	{
-		mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 300);
+		mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", player.rotationSpeed);
 	}
 
 	private void Start()
