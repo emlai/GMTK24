@@ -12,8 +12,6 @@ public class Ship : MonoBehaviour
     bool growing;
     public float growthFactor = 1;
     public TextMeshProUGUI progressbar;
-    public FogSettings fogSettings;
-    public UniversalRendererData rendererData;
     [Range(0, 1)] public float initialEnergy = 0.5f;
     float energy; // range: 0-1
     public float energyDepleteSpeed = 0.1f;
@@ -21,13 +19,14 @@ public class Ship : MonoBehaviour
     [Range(0, 1)]
     public float energyPerLightball = 0.25f;
     float boostTime;
+    public GameManager gameManager;
 
     void Start()
     {
         energy = initialEnergy;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
-        UpdateFogColor();
+        gameManager.UpdateFogColor(energy);
         StartCoroutine(EnergyDepleteLoop());
     }
 
@@ -49,7 +48,7 @@ public class Ship : MonoBehaviour
             }
 
             UpdateProgressbar();
-            UpdateFogColor();
+            gameManager.UpdateFogColor(energy);
         }
     }
 
@@ -132,15 +131,7 @@ public class Ship : MonoBehaviour
             pauseMenu.Win();
         }
         UpdateProgressbar();
-        UpdateFogColor();
+        gameManager.UpdateFogColor(energy);
         boostTime = Time.time;
-    }
-
-    void UpdateFogColor()
-    {
-        var color = Color.white * energy;
-        color.a = 1;
-        fogSettings.distanceGradient.colorKeys = new[] { new GradientColorKey(color, 1) };
-        rendererData.SetDirty(); // force update after updating renderer feature settings. not sure if there's a better way to do this.
     }
 }
