@@ -142,9 +142,9 @@ public class PauseMenu : MonoBehaviour
 
 		}
 
-		if (Input.GetKeyDown(KeyCode.V))
+		if (Input.GetKeyDown(KeyCode.I))
 		{
-			Win();
+			GameManager.instance.immortalityMode = true;
 		}
 
 		if (Input.GetKeyDown(KeyCode.L))

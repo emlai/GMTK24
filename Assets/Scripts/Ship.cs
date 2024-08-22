@@ -136,6 +136,7 @@ public class Ship : MonoBehaviour
 
     public void Die()
     {
+        if (GameManager.instance.immortalityMode) return;
         dead = true;
         pauseMenu.Die();
     }

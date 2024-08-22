@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
     public Ship player;
     public float deathFadeSpeed;
     public AnimationCurve deathFadeCurve;
+    public bool immortalityMode;
+    public static GameManager instance;
 
     void Start()
     {
+        instance = this;
         var found = rendererData.TryGetRendererFeature(out fog);
         Debug.Assert(found, "Failed to find FlatKitFog renderer feature");
         originalDistanceGradient = fog.settings.distanceGradient;
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (!player.dead)
         {
-            if (player.energy <= 0)
+            if (player.energy <= 0 && !immortalityMode)
             {
                 var color = fadeToColorOverlay.color;
                 var duration = 1 / deathFadeSpeed;
