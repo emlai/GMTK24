@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     public ParticleSystem boostParticles;
     [SerializeField] PauseMenu pauseMenu;
     [NonSerialized] public bool movementFrozen;
+    CharacterController characterController;
+    Ship ship;
+    public float boostDuration;
+    public float boostStrength;
 
     public void SetSensitivity()
 	{
@@ -21,6 +25,8 @@ public class Player : MonoBehaviour
 
 	void Start()
     {
+        characterController = GetComponent<CharacterController>();
+        ship = GetComponent<Ship>();
         SetSensitivity();
         animator = GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
@@ -35,15 +41,12 @@ public class Player : MonoBehaviour
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("UpDownThrust");
             var z = Input.GetAxis("Vertical");
-            transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-            if (z > 0)
-            {
-                animator.speed = 3;
-            }
-            else
-            {
-                animator.speed = 1;
-            }
+
+            var timeSinceBoost = ship.boostTime > 0 ? Time.time - ship.boostTime : boostDuration;
+            var boostMult = 1f + (timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * boostStrength : 0);
+
+            characterController.Move(transform.rotation * (new Vector3(x, y, z) * movementSpeed * boostMult * transform.localScale.x * Time.fixedDeltaTime));
+            animator.speed = z > 0 ? 3 : 1;
         }
 
         var mouseX = Input.GetAxis("Mouse X");

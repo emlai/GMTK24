@@ -8,7 +8,6 @@ using UnityEngine.Rendering.Universal;
 
 public class Ship : MonoBehaviour
 {
-    public float forwardMoveSpeed;
     Player player;
     bool growing;
     public float growthFactor = 1;
@@ -16,9 +15,8 @@ public class Ship : MonoBehaviour
     [Range(0, 1)] public float energy;
     public float energyDepleteSpeed = 0.1f;
     public PauseMenu pauseMenu;
-    [Range(0, 1)]
-    public float energyPerLightball = 0.25f;
-    float boostTime;
+    [Range(0, 1)] public float energyPerLightball = 0.25f;
+    internal float boostTime;
     public GameManager gameManager;
     internal bool dead;
     internal float energyDepletedTime;
@@ -53,22 +51,11 @@ public class Ship : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Grow();
-        }
-
-        var z = Input.GetAxis("Vertical");
-        if (z >= 0 && !player.movementFrozen) // Don't auto-move ship forward when player is manually moving backwards, or when player movement is frozen.
-        {
-            // Auto-move forward
-            var timeSinceBoost = Time.time - boostTime;
-            var boostDuration = 1f;
-            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4 : z > 0 ? 1 : 0;
-            var diff = transform.forward * forwardMoveSpeed * boostMult * Time.fixedDeltaTime;
-            transform.position += diff;
         }
     }
 
@@ -109,10 +96,10 @@ public class Ship : MonoBehaviour
 
     IEnumerator Eat(GameObject other)
     {
-        while (Vector3.Distance(other.gameObject.transform.position, mouth.position) > 0.1f)
+        while (Vector3.Distance(other.transform.position, mouth.position) > 0.1f)
         {
-            var dir = (mouth.position - other.gameObject.transform.position).normalized;
-            other.gameObject.transform.position += dir * 30 * Time.deltaTime;
+            var dir = (mouth.position - other.transform.position).normalized;
+            other.transform.position += dir * 30 * Time.deltaTime;
             yield return null;
         }
 
