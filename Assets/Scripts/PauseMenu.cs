@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
 	public void LoadSettings()
 	{
-		mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 300);
+		mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", player.rotationSpeed);
 	}
 
 	private void Start()
@@ -142,9 +142,9 @@ public class PauseMenu : MonoBehaviour
 
 		}
 
-		if (Input.GetKeyDown(KeyCode.V))
+		if (Input.GetKeyDown(KeyCode.I))
 		{
-			Win();
+			GameManager.instance.immortalityMode = true;
 		}
 
 		if (Input.GetKeyDown(KeyCode.L))

@@ -2,27 +2,31 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-    public GameObject targetToChase;
+    GameObject targetToChase;
     public float triggerDistance = 100;
     public float chaseSpeed = 10;
     public float turnSpeed = 10;
     private bool chasing;
+    CharacterController characterController;
 
     private void Start()
     {
-        if (targetToChase == null)
-        {
-            targetToChase = GameObject.FindGameObjectWithTag("Player");
-        }
+        targetToChase = GameObject.FindGameObjectWithTag("Player");
+        characterController = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
     {
+        var forward = targetToChase.transform.position - transform.position;
+        if (forward != Vector3.zero)
+        {
+            var lookAtTarget = Quaternion.LookRotation(forward, targetToChase.transform.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookAtTarget, turnSpeed * Time.fixedDeltaTime);
+        }
+
         if (chasing)
         {
-            var lookAtTarget = Quaternion.LookRotation(targetToChase.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookAtTarget, turnSpeed * Time.fixedDeltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, targetToChase.transform.position, chaseSpeed * Time.fixedDeltaTime);
+            characterController.Move(forward.normalized * chaseSpeed * Time.fixedDeltaTime);
         }
         else if (Vector3.Distance(transform.position, targetToChase.transform.position) < triggerDistance)
         {

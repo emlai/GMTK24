@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using FlatKit;
@@ -7,68 +8,54 @@ using UnityEngine.Rendering.Universal;
 
 public class Ship : MonoBehaviour
 {
-    public float forwardMoveSpeed;
     Player player;
     bool growing;
     public float growthFactor = 1;
     public TextMeshProUGUI progressbar;
-    public FogSettings fogSettings;
-    public UniversalRendererData rendererData;
-    [Range(0, 1)] public float initialEnergy = 0.5f;
-    float energy; // range: 0-1
+    [Range(0, 1)] public float energy;
     public float energyDepleteSpeed = 0.1f;
     public PauseMenu pauseMenu;
-    [Range(0, 1)]
-    public float energyPerLightball = 0.25f;
-    float boostTime;
+    [Range(0, 1)] public float energyPerLightball = 0.25f;
+    internal float boostTime;
+    public GameManager gameManager;
+    internal bool dead;
+    internal float energyDepletedTime;
+    internal Transform mouth;
 
     void Start()
     {
-        energy = initialEnergy;
+        mouth = transform.Find("MouthPosition");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         UpdateProgressbar();
-        UpdateFogColor();
+        gameManager.UpdateFogColor(energy);
         StartCoroutine(EnergyDepleteLoop());
     }
 
     IEnumerator EnergyDepleteLoop()
     {
-        while (true)
+        while (!dead)
         {
             var speedMult = 0.1f;
             yield return new WaitForSeconds(1f / energyDepleteSpeed * speedMult);
+            var prevEnergy = energy;
+            energy -= 1f / 30f * speedMult;
             if (energy <= 0)
             {
-                pauseMenu.Die();
-                yield break;
-            }
-            energy -= 1f / 30f * speedMult;
-            if (energy < 0)
-            {
                 energy = 0;
+                if (prevEnergy > 0)
+                    energyDepletedTime = Time.time;
             }
 
             UpdateProgressbar();
-            UpdateFogColor();
+            gameManager.UpdateFogColor(energy);
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Grow();
-        }
-
-        var z = Input.GetAxis("Vertical");
-        if (z >= 0 && !player.movementFrozen) // Don't auto-move ship forward when player is manually moving backwards, or when player movement is frozen.
-        {
-            // Auto-move forward
-            var timeSinceBoost = Time.time - boostTime;
-            var boostDuration = 1f;
-            var boostMult = timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * 4 : z > 0 ? 1 : 0;
-            var diff = transform.forward * forwardMoveSpeed * boostMult * Time.fixedDeltaTime;
-            transform.position += diff;
         }
     }
 
@@ -109,12 +96,10 @@ public class Ship : MonoBehaviour
 
     IEnumerator Eat(GameObject other)
     {
-        var mouth = transform.Find("MouthPosition");
-
-        while (Vector3.Distance(other.gameObject.transform.position, mouth.position) > 0.1f)
+        while (Vector3.Distance(other.transform.position, mouth.position) > 0.1f)
         {
-            var dir = (mouth.position - other.gameObject.transform.position).normalized;
-            other.gameObject.transform.position += dir * 30 * Time.deltaTime;
+            var dir = (mouth.position - other.transform.position).normalized;
+            other.transform.position += dir * 30 * Time.deltaTime;
             yield return null;
         }
 
@@ -132,15 +117,14 @@ public class Ship : MonoBehaviour
             pauseMenu.Win();
         }
         UpdateProgressbar();
-        UpdateFogColor();
+        gameManager.UpdateFogColor(energy);
         boostTime = Time.time;
     }
 
-    void UpdateFogColor()
+    public void Die()
     {
-        var color = Color.white * energy;
-        color.a = 1;
-        fogSettings.distanceGradient.colorKeys = new[] { new GradientColorKey(color, 1) };
-        rendererData.SetDirty(); // force update after updating renderer feature settings. not sure if there's a better way to do this.
+        if (GameManager.instance.immortalityMode) return;
+        dead = true;
+        pauseMenu.Die();
     }
 }

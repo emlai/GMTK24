@@ -7,71 +7,51 @@ public class Player : MonoBehaviour
     public float rotationSpeed;
     [Range(0.01f, 1f)]
     public float scaleSpeed;
-    Ship ship;
     // Reticle reticle;
     private Animator animator;
     bool scaling;
     public ParticleSystem boostParticles;
     [SerializeField] PauseMenu pauseMenu;
     [NonSerialized] public bool movementFrozen;
+    CharacterController characterController;
+    Ship ship;
+    public float boostDuration;
+    public float boostStrength;
 
-    void Awake()
+    public void SetSensitivity()
 	{
-		rotationSpeed = pauseMenu.mouseSensitivity;
-	}
-
-
-	public void SetSensitivity()
-	{
-		rotationSpeed = PlayerPrefs.GetFloat("MouseSensitivity", 300);
+        rotationSpeed = PlayerPrefs.GetFloat("MouseSensitivity", rotationSpeed);
 	}
 
 	void Start()
     {
+        characterController = GetComponent<CharacterController>();
+        ship = GetComponent<Ship>();
         SetSensitivity();
-		ship = GameObject.FindWithTag("Ship").GetComponent<Ship>();
-        animator = ship.GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
         // reticle = GameObject.FindWithTag("Reticle").GetComponent<Reticle>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-		rotationSpeed = pauseMenu.mouseSensitivity;
 	}
 
     void FixedUpdate()
     {
-        if (movementFrozen) return;
+        if (!movementFrozen)
+        {
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("UpDownThrust");
+            var z = Input.GetAxis("Vertical");
 
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("UpDownThrust");
-        var z = Input.GetAxis("Vertical");
-        // transform.position += transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        ship.transform.position += ship.transform.rotation * (new Vector3(x, y, z) * movementSpeed * transform.localScale.x * Time.fixedDeltaTime);
-        if (z > 0)
-        {
-            animator.speed = 3;
-        }
-        else
-        {
-            animator.speed = 1;
+            var timeSinceBoost = ship.boostTime > 0 ? Time.time - ship.boostTime : boostDuration;
+            var boostMult = 1f + (timeSinceBoost < boostDuration ? (boostDuration - timeSinceBoost) * boostStrength : 0);
+
+            characterController.Move(transform.rotation * (new Vector3(x, y, z) * movementSpeed * boostMult * transform.localScale.x * Time.fixedDeltaTime));
+            animator.speed = z > 0 ? 3 : 1;
         }
 
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
-        // transform.localEulerAngles += new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime;
-        ship.transform.Rotate(new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime);
-
-        // var scaleDiff = Input.GetAxis("Scale") * scaleSpeed;
-        // Debug.Log($"{scaleDiff} {Mathf.Pow(scaleDiff, Time.fixedDeltaTime)}");
-        // Camera.main.fieldOfView += scaleDiff * Time.fixedDeltaTime;
-        // ship.transform.localScale *= Mathf.Pow(1 + scaleDiff, Time.fixedDeltaTime);
-
-
-        // var allObjects = FindObjectsByType<Transform>(FindObjectsSortMode.None);
-        // foreach (var obj in allObjects)
-        // {
-        //     obj.localScale *= Mathf.Pow(1 - scaleDiff, Time.fixedDeltaTime);
-        // }
-        // Debug.DrawRay(ship.transform.position, ship.transform.forward * 10000, Color.red, 1, false);
+        transform.Rotate(new Vector3(-mouseY, mouseX, 0) * rotationSpeed * Time.fixedDeltaTime);
     }
 
     void Update()
